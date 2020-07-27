@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>South Delhi</title>
+
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+    <link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+    <script src="jQuery/jquery-1.9.1.js"></script>
+    <script src="jQuery/jquery-1.9.1.min.js"></script>
+    <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
+    <link href="css/MainBody.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/npm.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    
+
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        /*
+	        *  Simple image gallery. Uses default settings
+	        */
+
+	        $('.fancybox').fancybox();
+
+	        /*
+	        *  Different effects
+	        */
+
+	        // Change title type, overlay closing speed
+	        $(".fancybox-effects-a").fancybox({
+	            helpers: {
+	                title: {
+	                    type: 'outside'
+	                },
+	                overlay: {
+	                    speedOut: 0
+	                }
+	            }
+	        });
+
+	        // Disable opening and closing animations, change title type
+	        $(".fancybox-effects-b").fancybox({
+	            openEffect: 'none',
+	            closeEffect: 'none',
+
+	            helpers: {
+	                title: {
+	                    type: 'over'
+	                }
+	            }
+	        });
+
+	        // Set custom style, close if clicked, change title type and overlay color
+	        $(".fancybox-effects-c").fancybox({
+	            wrapCSS: 'fancybox-custom',
+	            closeClick: true,
+
+	            openEffect: 'none',
+
+	            helpers: {
+	                title: {
+	                    type: 'inside'
+	                },
+	                overlay: {
+	                    css: {
+	                        'background': 'rgba(238,238,238,0.85)'
+	                    }
+	                }
+	            }
+	        });
+
+	        // Remove padding, set opening and closing animations, close if clicked and disable overlay
+	        $(".fancybox-effects-d").fancybox({
+	            padding: 0,
+
+	            openEffect: 'elastic',
+	            openSpeed: 150,
+
+	            closeEffect: 'elastic',
+	            closeSpeed: 150,
+
+	            closeClick: true,
+
+	            helpers: {
+	                overlay: null
+	            }
+	        });
+
+	        /*
+	        *  Button helper. Disable animations, hide close button, change title type and content
+	        */
+
+	        $('.fancybox-buttons').fancybox({
+	            openEffect: 'none',
+	            closeEffect: 'none',
+
+	            prevEffect: 'none',
+	            nextEffect: 'none',
+
+	            closeBtn: false,
+
+	            helpers: {
+	                title: {
+	                    type: 'inside'
+	                },
+	                buttons: {}
+	            },
+
+	            afterLoad: function () {
+	                this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+	            }
+	        });
+
+
+	        /*
+	        *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+	        */
+
+	        $('.fancybox-thumbs').fancybox({
+	            prevEffect: 'none',
+	            nextEffect: 'none',
+
+	            closeBtn: false,
+	            arrows: false,
+	            nextClick: true,
+
+	            helpers: {
+	                thumbs: {
+	                    width: 50,
+	                    height: 50
+	                }
+	            }
+	        });
+
+	        /*
+	        *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+	        */
+	        $('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+				    openEffect: 'none',
+				    closeEffect: 'none',
+				    prevEffect: 'none',
+				    nextEffect: 'none',
+
+				    arrows: false,
+				    helpers: {
+				        media: {},
+				        buttons: {}
+				    }
+				});
+
+	        /*
+	        *  Open manually
+	        */
+
+	        $("#fancybox-manual-a").click(function () {
+	            $.fancybox.open('1_b.jpg');
+	        });
+
+	        $("#fancybox-manual-b").click(function () {
+	            $.fancybox.open({
+	                href: 'iframe.html',
+	                type: 'iframe',
+	                padding: 5
+	            });
+	        });
+
+	        $("#fancybox-manual-c").click(function () {
+	            $.fancybox.open([
+					{
+					    href: '1_b.jpg',
+					    title: 'My title'
+					}, {
+					    href: '2_b.jpg',
+					    title: '2nd title'
+					}, {
+					    href: '3_b.jpg'
+					}, {
+                        href: '4_b.jpg',
+                        title: 'My title'
+                    },{
+                        href: '5_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '6_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '7_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '8_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '9_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '10_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '11_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '12_b.jpg',
+                        title: 'My title'
+                    },
+				], {
+				    helpers: {
+				        thumbs: {
+				            width: 750,
+				            height: 500
+				        }
+				    }
+				});
+	        });
+
+
+	    });
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+
+		body {
+			margin: 0 auto;
+		}
+	</style>
+	
+
+    <!-- ------------Slideshow jQuery------------ -->
+
+    <script type="text/javascript">
+        $(function () {
+            var $slideshow = $('#slideshow'),
+            $slides = [],
+            active = null;
+
+            // build the slides array from the children of the slideshow.  this will pull in any children, so adjust the scope if needed
+            $slideshow.children().each(function (i) {
+                var $thisSlide = $(this);
+
+                // if its the active slide then set it to this index
+                if ($thisSlide.hasClass('active')) active = i;
+
+                $slides.push($thisSlide);
+            });
+
+            // if no active slide, take the last one
+            if (active === null) active = $slides.length - 1;
+
+            function slideSwitch() {
+                // add the last-active class to the previously active slide
+                var $lastActive = $slides[active];
+                $lastActive.addClass('last-active');
+
+                // find the next slide
+                active++;
+
+                // set to zero if it's too high
+                if (active >= $slides.length) active = 0;
+
+                var $nextActive = $slides[active];
+
+                $nextActive.css({ opacity: 0.0 })
+                    .addClass('active')
+                    .animate({ opacity: 1.0 }, 1000, function () {
+                        $lastActive.removeClass('active last-active');
+                    });
+            }
+
+            // start the interval
+            setInterval(slideSwitch, 4000);
+        });
+    </script>
+
+</head>
+<body>
+	<div id="MainBody">
+		<br />
+		<div id="SocialNetworking">
+		<a href="https://www.facebook.com/delhitourism/">
+			<img src="img/facebook.png" title="facebook"></a>
+		<a href="https://www.instagram.com/delhitourism_official/">
+			<img src="img/instagram.png" title="Instagram"></a>
+		<a href="https://twitter.com/tourism_delhi?lang=en">
+			<img src="img/twitter.png" title="Twitter"></a>
+		<a href="https://en.wikipedia.org/wiki/Delhi_Tourism_and_Transportation_Development_Corporation">
+			<img src="img/wikipedia.png" title="Wikipedia"></a>
+		</div>
+		<div id="enquiry">
+		<a href="EnquiryForm.html">
+			<img src="img/vertical-enquire.png" title="Click Here For Enquiry"></a>
+		</div>
+		
+       <header>
+       	<h1>Dilli Safari</h1>
+       	<form>
+  			<input type="text" name="search" placeholder="Search..">
+		</form>
+       </header>
+       <br />
+			<nav>
+				<ul>
+				<li><img src="img/home_button.png"><a href="default.html">Home</a></li>
+				<li><a href="AboutDelhi.html">About Delhi</a></li>
+				<li><a href="">Delhi Regions</a>
+					<ul class="dropdown">
+						<li><a href="CentralDelhi.html">Central Delhi</a>
+						<li><a href="NorthDelhi.html">North Delhi</a>
+						<li><a href="SouthDelhi.html">South Delhi</a>
+						<li><a href="WestDelhi.html">West Delhi</a>
+						<li><a href="EastDelhi.html">East Delhi</a>
+							<span class="clearfix"></span>
+					</ul>
+				</li>
+				<li><a href="Entertainment.html">Entertainment</a></li>
+				<li><a href="Registeration.html">Registeration</a></li>
+				<span class="clearfix"></span>
+			</ul>
+
+			</nav>
+
+		<section id ="divSlideshow">
+                                <div id="slideshow" class="SlideSize">
+                                    <img src="img/1.jpg" alt="red"  class="active" />
+                                    <img src="img/2.jpg" alt="blue" class="active" />
+                                    <img src="img/3.jpg" alt="Green" class="active"/>
+                                    <img src="img/4.jpg" alt="red" class="active" />
+                                    <img src="img/5.jpg" alt="blue" class="active" />
+                                </div>    	
+				<span class="clearfix"></span>
+				<img src="img/logo.jpg">
+		</section> 
+		<div class="Attractions">			
+			Tourist Attractions
+			<img src="img/attractions.png"/>
+		</div>
+		
+			<main class="grid" style="margin-bottom: 10px;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <a href="http://akshardham.com/" title="Click here to Visit"> 
+							           	<h4 title="">..Akshardham..</h4>
+							           		<p>Divine Abode of God</p>
+							           </a>
+                                    <a class="fancybox" href="demo/1_b.jpg" title="Akshardham or Swaminarayan Akshardham complex"><img src="demo/1_s.jpg" alt=""  class="img-responsive img-thumbnail" />
+                                    </a>
+							           
+
+							                
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <a href="https://en.wikipedia.org/wiki/Jama_Masjid,_Delhi" title="Click here to Visit">
+							            	<h4 title="">..Jama Masjid..</h4>
+							            
+							                <p>The Masjid-i Jahān-Numā (World-reflecting Mosque)</p>
+							        </a>
+
+                                    <a class="fancybox" href="demo/2_b.jpg" title="Jama Masjid"><img src="demo/2_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+							            
+
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <a href="https://en.wikipedia.org/wiki/Qutb_Minar" title="Click here to Visit">
+							            	<h4 title="">..Qutab Minar..</h4>
+							            
+							                <p> UNESCO World Heritage Site in the Mehrauli </p>
+							        </a>
+
+                                    <a class="fancybox" href="demo/3_b.jpg" title="Qutab Minar"><img src="demo/3_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+							            
+
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Lotus_Temple" title="Click here to Visit">
+							            	<h4 title="">..Lotus Temple..</h4>
+							            
+							                <p>Bahá'í House of Worship</p>
+							            </a>
+                                    <a class="fancybox" href="demo/4_b.jpg" title="Lotus Temple"><img src="demo/4_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Humayun%27s_Tomb" title="Click here to Visit">
+							            	<h4 title="">..Humayun's Tomb..</h4>
+							            
+							                <p>Maqbara e Humayun</p>
+							            </a>
+                                    <a class="fancybox" href="demo/5_b.jpeg" title="Humayun's Tomb"><img src="demo/5_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Jantar_Mantar" title="Click here to Visit">
+							            	<h4 title="">..Jantar Mantar..</h4>
+							            
+							                <p>An Equinoctial Sundial</p>
+							            </a>
+                                    <a class="fancybox" href="demo/6_b.jpg" title="Jantar Mantar"><img src="demo/6_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Red_Fort" title="Click here to Visit">
+							            	<h4 title="">..Red Fort..</h4>
+							            
+							                <p>Residence of the emperors of the Mughal dynasty</p>
+							            </a>
+                                    <a class="fancybox" href="demo/7_b.jpg" title="Red Fort"><img src="demo/7_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Gurudwara_Bangla_Sahib">
+							            	<h4 title="">..GuruDwara Bangla Sahib..</h4>
+							            
+							                <p>Sikh house of Worship</p>
+							            </a>
+                                    <a class="fancybox" href="demo/8_b.jpg" title="GuruDwara Bangla Sahib"><img src="demo/8_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Parliament_House_(India)" title="Click here to Visit">
+							            	<h4 title="">..Parliament House..</h4>
+							            
+							                <p>The Sansad Bhawan</p>
+							            </a>
+                                    <a class="fancybox" href="demo/9_b.jpg" title="Parliament House"><img src="demo/9_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Dilli_Haat" title="Click here to Visit">
+							            	<h4 title="">..Dilli Haat..</h4>
+							            
+							                <p>Paid-entrance open-air food plaza and craft bazaar</p>
+							            </a>
+                                    <a class="fancybox" href="demo/10_b.jpg" title="Dilli Haat"><img src="demo/10_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Purana_Qila" title="Click here to Visit">
+							            	<h4 title="">..Purana Qila..</h4>
+							            
+							                <p>One of the oldest forts in Delhi.</p>
+							            </a>
+                                    <a class="fancybox" href="demo/11_b.jpg" title="Purana Qila"><img src="demo/11_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							            <a href="https://en.wikipedia.org/wiki/Tomb_of_Sikandar_Lodi" title="Click here to Visit">
+							            	<h4 title="">..Lodhi Tomb..</h4>
+							            
+							                <p>Tomb of Sikandar Lodi </p>
+							            </a>
+                                    <a class="fancybox" href="demo/12_b.jpg" title="Lodhi Tomb"><img src="demo/12_s.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+                            </div>
+       
+                       
+                        </div>
+                    </div>
+                    <span class="clearfix"></span>
+        	</main>
+    	</div>
+    	<div id="DelhiRegions">
+    		Delhi Regions
+    	</div>
+    	
+    	<SECTION class="RegionsSection" id="SouthDelhi">
+    		<h2>[South Delhi]</h2>
+    		<h3>HOSPITALS</h3> 
+    			<summary>
+				<h4>Sir Ganga Ram Hospital</h4>	
+				<p>
+					Address: Sir Ganga Ram Hospital Marg, Rajinder Nagar, New Delhi, Delhi - 110060
+					<br>
+					Hours: 
+					Open today · Open 24 hours
+ 					<br>
+					Phone: 011 2575 0000
+					<br>
+					<a href="http://www.sgrh.com/">http://www.sgrh.com/</a>
+				</p>
+
+				<h4>St.Stephen's Hospital</h4>	
+				<p>
+					Address: St. Stephen's Hospital Marg, Tis Hazari, New Delhi, Delhi 110054
+					<br>
+					Hours: 
+					Open today · Open 24 hours
+ 					<br>
+					Phone: 011 2395 8005
+					<br>
+					<a href="http://www.ststephenshospital.org/">http://www.ststephenshospital.org/</a>
+				</p>	
+				</summary>
+				<summary>
+				<h4>BLK Super Speciality Hospital</h4>	
+				<p>
+					Address: Building No-5, Pusa Road, Rajinder Nagar, New Delhi, Delhi 110005
+					<br>
+					Hours: 
+					Open today · Open 24 hours
+ 					<br>
+					Phone: 011 3040 3040
+					<br>
+					<a href="http://www.blkhospital.com/">http://www.blkhospital.com/</a>
+				</p>
+				<h4>Sanjeevan Hospital</h4>	
+				<p>
+					Address: 24, Ansari Road, Darya Ganj, New Delhi, Delhi 110002
+					<br>
+					Hours: 
+					Open today · Open 24 hours
+ 					<br>
+					Phone: 011 4577 0000
+					<br>
+					<a href="http://sanjeevanhospital.in/">http://sanjeevanhospital.in/</a>
+				</p>
+				</summary>
+				<span class="clearfix"></span>
+				<h3>THEATERS</h3>
+				<summary>
+				<h4>PVR - Plaza – CP</h4>	
+				<p>
+					Address: Plaza Building, Outer Circle H block, Connaught Place, New Delhi, Delhi 110001
+ 					<br>
+					Phone: 088009 00009
+					<br>
+					<a href="https://www.pvrcinemas.com/">https://www.pvrcinemas.com/</a>
+					<br>
+					<a href="https://in.bookmyshow.com/">https://in.bookmyshow.com/</a>
+				</p>
+				<h4>PVR Rivoli - Connaught Place</h4>	
+				<p>
+					Address: Regal Building, Baba Kharak Singh Marg, Hanuman Road Area, Connaught Place, New Delhi, Delhi 110001
+ 					<br>
+					Phone: 088009 00009
+					<br>
+					<a href="https://www.pvrcinemas.com/">https://www.pvrcinemas.com/</a>
+					<br>
+					<a href="https://in.bookmyshow.com/">https://in.bookmyshow.com/</a>
+				</p>
+				</summary>
+				<summary>
+				<h4>Regal Theatre</h4>	
+				<p>
+					Address: Connaught Circus, Hanuman Road Area, Connaught Place, New Delhi, Delhi 110001
+ 					<br>
+					Phone: 011 2336 2245
+					<br>
+					<a href="https://www.regmovies.com/">https://www.regmovies.com/</a>
+					<br>
+					<a href="https://in.bookmyshow.com/">https://in.bookmyshow.com/</a>
+				</p>
+				<h4>Liberty Cinema</h4>	
+				<p>
+					Address: 19-B, New Rohtak Road, Karol Bagh, New Delhi, Delhi 110005
+ 					<br>
+					Phone: 011 2871 1800
+					<br>
+					<a href="https://in.bookmyshow.com/">https://in.bookmyshow.com/</a>
+				</p>
+				</summary>
+				<span class="clearfix"></span>
+				<h3>MARKETS</h3> 
+				<summary>
+				<h4>Central Market</h4>	
+				<p>
+					Address: Central Market, Lajpat Nagar III, Lajpat Nagar, New Delhi, Delhi 110024
+					<br>
+					Hours: 
+ 					<br>
+					Tuesday	10AM–10PM	   
+					<br>
+					Wednesday	10AM–10PM	   	
+					<br>
+					Thursday	10AM–10PM	   
+					<br>
+					Friday	10AM–10PM	   
+					<br>
+					Saturday	10AM–10PM	   
+					<br>
+					Sunday	10AM–10PM	   
+					<br>
+					Monday	Closed	 
+ 					<br>
+					Phone: 011 2575 0000
+					<br>
+					Phone: 099991 70190
+				</p>
+				<h4>Shankar Market</h4>	
+				<p>
+					Address: Shivaji Marg, Dwarka, New Delhi, Delhi 110078
+					<br>
+					Hours: 9AM–11PM
+				</p>	
+				</summary>
+				<summary>
+				<h4>Khan Market</h4>	
+				<p>
+					Address: 46, Khan Market Rd, Rabindra Nagar, New Delhi, Delhi 110003
+					<br>
+					Hours: 10AM–12AM
+					<br>
+					Phone: 075990 51134
+				</p>
+				<h4>Palika Bazaar</h4>	
+				<p>
+					Address: Shop No. B-7, Way To Palika Car Parking, Palika Bazaar Rd, Palika Bazar, Connaught Place, New Delhi, Delhi 110001
+					<br>
+					Hours: 
+					Open today · 10AM–9PM
+ 					<br>
+					Phone: 094104 51003
+				</p>
+				</summary>
+				<span class="clearfix"></span>
+    	</SECTION>
+    	<section class="FooterAhead">
+    		<article>
+    			<div>Travel Tools</div>
+    			<ul>
+    				<li>
+    					<a href="https://www.mapsofindia.com/distances/delhi.html">Distance Chart</a>
+    				</li>
+    				<li>
+    					<a href="">Weather Update</a>
+    				</li>
+    				<li>
+    					<a href="">Currency Converter</a>
+    				</li>
+    				<li>
+    					<a href="">Airlines Timetable</a>
+    				</li>
+    			</ul>
+    		</article>
+    		<article>
+    			<div>Travel Tips</div>
+    		<ul>
+    				<li>
+    					<a href="">Visa</a>
+    				</li>
+    				<li>
+    					<a href="">Wellness and Spas</a>
+    				</li>
+    				<li>
+    					<a href="">Best Time to visit</a>
+    				</li>
+    				<li>
+    					<a href="">Indian Tourist Destinations</a>
+    				</li>
+    			</ul>
+    		</article>
+    		<article>
+    			<div>Tourist Places</div>
+    			<ul>
+    				<li>
+    					<a href="https://en.wikipedia.org/wiki/Dilli_Haat">Dilli Haat</a>
+    				</li>
+    				<li>
+    					<a href="">Garden of Five Senses</a>
+    				</li>
+    				<li>
+    					<a href="https://en.wikipedia.org/wiki/Qutb_Minar">Qutab Minar</a>
+    				</li>
+    				<li>
+    					<a href="">Rashtrapati Bhavan</a>
+    				</li>
+    			</ul>
+    		</article>
+    		<article>
+    			<div>Downloads</div>
+    			<ul>
+    				<li>
+    					<a href="">Photo Gallery</a>
+    				</li>
+    				<li>
+    					<a href="">Videos</a>
+    				</li>
+    				<li>
+    					<a href="">Screen Savers</a>
+    				</li>
+    				<li>
+    					<a href="">Brouchures</a>
+    				</li>
+    			</ul>
+    		</article>
+    		<article>
+    			<div>Reach Us</div>
+    			<ul>
+    				<li>
+    					<a href="">Contact Us</a>
+    				</li>
+    				<li>
+    					<a href="">Feedback</a>
+    				</li>
+    				<li>
+    					<a href="">Film Shooting Facilitation</a>
+    				</li>
+    				<li>
+    					<a href="">Careers</a>
+    				</li>
+    			</ul>
+    			<span class="clearfix"></span>
+    		</article>
+    	</section>
+    	<footer>
+    		About DTTDC | Tourism | Travel Bureau | Transport | Catering | DITTM | Liquor | Tender | RTI |e-SLA | Labour Compliance | Employee Corner | Disclaimer | Website Policy | Sitemap | Archives 
+    		<br>
+    		<br>
+    		
+    	</footer>
+    </div>
+	
+</body>
+</html>

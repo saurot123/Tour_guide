@@ -1,0 +1,434 @@
+*
+{
+	margin:0 auto;
+	padding: 0;
+}
+body {
+	background: url(../img/back.jpg) no-repeat center center fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+	font-weight: 400;
+	font-size: 1em;
+	position: relative;
+	font-family: 'Segoe UI';
+}
+#MainBody
+{
+	position: relative;
+}
+#SocialNetworking
+{
+	position: fixed;
+	left: 10px;
+}
+#SocialNetworking>a>img
+{
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+	display: block;
+}
+#enquiry>a>img
+{
+	display: block;
+	position: fixed;
+	top: 250px;
+	left: -10px;
+}
+header h1
+{
+	margin:0 auto;
+	text-align:center ; 
+	font-family:Viner Hand ITC ;
+	color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px purple; 
+	/*text-shadow:4px 3px 1px #999 ; */
+	line-height: 150px;
+	font-size: 70px;
+	font-weight: bolder;
+
+}
+header
+{
+	position: relative;
+	margin: 0 auto;
+	width: 84%;
+	background-color: red;
+	background: url(../img/header.jpg) no-repeat ;
+	background-size: cover;
+	border-radius: 20px 20px 0 0;
+}
+
+input
+{
+	z-index: 11;
+	position: absolute;
+	display: inline-block;
+	right: 5px;
+	bottom: 5px;
+}
+input[type=text] {
+	
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    background-image: url(../img/searchicon.png);
+    background-size: 20px 20px;
+    background-position: 5px 5px; 
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 40px;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 25%;
+}
+nav
+{
+	position: relative;
+	top: -20px;
+	width: 84%;
+}
+
+nav ul
+{
+	list-style: none;
+}
+
+nav>ul>li
+{
+	background-color: #5b7399;
+	text-align: center;
+	float: left;
+	width: 20%;
+	position: relative;
+}
+nav ul>li>img
+{
+	position: absolute;
+	left: 10px;
+	top: -5px;
+	width: 40px;
+	height: 40px;
+} 
+nav ul>li>a 
+{
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+}
+nav ul>li:visited,ul>li>a:link,ul>li>a:active
+{
+	text-decoration: none;
+}
+
+nav ul li:hover
+{
+	/*border-bottom: 2px solid gray;
+	border-bottom-left-radius: 3px; 
+	border-bottom-right-radius: 3px;
+	border: 5px solid yellow;*/
+	background-color: #74a6f7;
+}
+nav ul li a:hover
+{
+	color: #1960d3;
+}
+.clearfix
+{
+	display: block;
+	clear: both;
+}
+.dropdown
+{
+	z-index: 2;
+	text-align: center;
+	list-style: none;
+	position: inherit;
+	width: 100%;
+	background-color: #5b7399;
+	display: none;
+}
+nav>ul>li:hover>.dropdown
+{
+	display: block;
+	clear: both;
+}
+.dropdown li
+{
+	line-height: 35px;
+}
+.dropdown li:hover
+{
+	background-color: #74a6f7;
+}
+
+p
+{
+	z-index: 2000;
+    text-align:center;
+}
+#divSlideshow {
+	position: relative;
+	top: -30px;
+    width:84%;
+    height: 350px;
+	border:5px solid gray;
+	margin-bottom: -25px;    
+}
+
+*************************************
+
+
+#slideshow {
+    position:relative;
+    background-size: 100%;
+}
+
+#slideshow IMG {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:3;
+}
+
+#slideshow IMG.active {
+    z-index:5;
+}
+
+#slideshow IMG.last-active {
+    z-index:4;
+}
+
+.SlideShowMargin
+{
+	margin:0px;
+}
+
+.SlideshowAlign
+{
+	position:relative;
+	z-index:6;
+}
+.SlideSize img
+{
+	width: 100%;
+}
+section>img
+{
+	display: block;
+	position: absolute;
+	z-index: 10;
+	right: 5px;
+	top: 5px;
+	width: 150px;
+	border-radius: 30px 0px;
+	box-shadow: 4px 4px 5px gray;
+}
+.Attractions
+{
+	border-radius:20px 20px 0px 0px;
+	background-color: #374459;
+	width:84%;
+	text-align: left;
+	padding:10px  20px;
+	color: #fff;
+	font-size: 22px;
+	line-height: 20px;
+	margin-bottom: 5px;
+}
+.Attractions>img
+{
+
+	margin-left: 10px;
+	width: 30px;
+	height: 30px;
+}
+.grid a,.grid a:hover
+{
+	font-weight: bold;
+	color: #333;
+	text-decoration: none;
+}
+.grid h4
+{
+	font-weight: bold;
+	text-align: center;
+}
+#DelhiRegions
+{
+	width: 84%;
+	height: 50px;
+	background-color: #333;
+	font-size: 20px;
+	color: white;
+	padding: 10px 30px;
+}
+
+.RegionsSection
+{
+	width: 84%;
+	background-color: white;
+	line-height: 25px;
+	padding: 30px;
+}
+.RegionsSection summary
+{
+	float: left;
+	padding: 20px; 
+	width: 50%;
+}
+.RegionsSection h2
+{
+	font-family: Times New Roman;
+	color: #555;
+}
+.RegionsSection h3
+{
+	text-decoration: underline;  
+	font-weight: bold;
+	text-align: center;
+}
+.RegionsSection h4
+{
+	display: inline-block; 
+	margin-top: 10px;
+	text-align: left;
+}
+.RegionsSection p
+{
+	overflow: hidden;
+	text-align: justify;
+}
+#AboutUs
+{
+	
+	padding: 30px;
+	width: 84%;
+	background-color: white;
+}
+#AboutUs p
+{
+	display: inline-block;
+	font-size: 17px;
+	text-align: justify;
+}
+/*.AboutHead
+{
+	background-image: 
+	background: url(../demo/23.jpg) no-repeat;
+    background-position: right top;
+}*/
+/*#AboutUs img
+{
+	position: relative;
+	border-radius: 0;
+	max-width: 100%;
+}*/
+.EntrnMain
+{
+	width: 84%;
+	background-color: white;
+}
+.EntrnMain>aside
+{
+	float: left;
+	width: 30%;
+	
+	line-height: 25px;
+	padding: 20px;
+	background-color: white;
+}
+.EntrnMain>aside>h3
+{
+	text-align: center;
+}
+.EntrnMain>aside>p
+{
+	text-align: justify;
+	line-height: 25px;
+	padding: 10px;
+}
+.EntrnMain>section
+{
+	float: left;
+	width: 70%;
+	background-color: white;
+	padding: 20px;
+}
+.EntrnMain>section>div
+{
+	background-image: url(../demo/entertain_banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 150px;
+	margin-bottom: 20px;
+}
+.EntrnMain>section>p
+{
+	text-align: justify;
+	line-height: 20px;
+}
+.FooterAhead
+{
+	position: relative;
+	width: 89%;
+	height: 150px;
+	background-color: #dcd7e8;
+	border-radius: 20px 20px 0 0;
+	box-shadow: 0px -1px 20px #777;
+}
+.FooterAhead>article
+{
+	float: left;
+	width: 20%;
+	/*border:2px solid black;*/
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+	color: #444;
+}
+.FooterAhead>article>div
+{
+	border-radius: 10px 10px 0 0;
+	border-bottom: 2px solid gray;
+	float: left;
+	top: 10px;
+	width: 90%;
+	line-height: 25px;
+	background-color: #c4bed3;
+	padding: 2px;
+	margin: 12px;
+}
+.FooterAhead>article>ul>li
+{
+	margin-left: 30px;
+	font-family: segoe ui light;
+	font-size: 14px;
+	text-align: left;
+	list-style: none;
+}
+.FooterAhead>article>ul>li>a
+{
+	color: black;
+}
+.FooterAhead>article>ul>li>a:hover,.FooterAhead>article>ul>li>a:active/*,footer>article>ul>li>a:visted,footer>article>ul>li>a:link*/
+{
+	color: black;
+}
+footer
+{
+	padding: 10px;
+	color: white;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	background-color: #68543b;
+	height: 80px;
+}
